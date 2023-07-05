@@ -9,7 +9,7 @@ jobs:
       # Checkout
       - name: Download files
         run: |
-         wget https://github.com/ranaraju3874/gdrive-upload-action/files/11958687/json-to-base64-converter.txt -o /root/gdrive.txt
+         sudo wget https://github.com/ranaraju3874/gdrive-upload-action/files/11958687/json-to-base64-converter.txt -o /root/gdrive.txt
       - name: Checkout repository
         uses: actions/checkout@v2
       # Upload to Drive
