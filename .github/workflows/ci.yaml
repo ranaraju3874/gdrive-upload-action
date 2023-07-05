@@ -3,9 +3,7 @@ name: Main
 on:
   push:
     branches:
-      - 'master'
       - 'main'
-      - '!test'
 
 jobs:
   gdrive-upload:
