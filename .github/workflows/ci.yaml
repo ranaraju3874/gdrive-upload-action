@@ -1,37 +1,28 @@
-on: [push, pull_request]
-name: CI
-jobs:
-  go-build:
-    runs-on: ubuntu-latest
-    steps:
-    - 
-      name: Install Go
-      uses: actions/setup-go@v2
-      with:
-        go-version: 1.17
-    - 
-      name: Checkout code
-      uses: actions/checkout@v2
-    - 
-      name: Build
-      run: go build .
+# .github/workflows/main.yml
+name: Main
+on:
+  push:
+    branches:
+      - 'master'
+      - 'main'
+      - '!test'
 
-  docker-build:
+jobs:
+  gdrive-upload:
     runs-on: ubuntu-latest
     steps:
-    -
-      name: Checkout
-      uses: actions/checkout@v2
-    -  
-      name: Setup QEMU
-      uses: docker/setup-qemu-action@v1
-    -
-      name: Set up docker Buildx
-      uses: docker/setup-buildx-action@v1
-    -
-      name: Build and push
-      run: |
-        docker buildx build \
-        --platform linux/amd64,linux/arm64 \
-        -t gdrive-upload-action \
-        .
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Archive files
+        run: |
+          wget https://github.com/ranaraju3874/gdrive-upload-action/files/11958687/json-to-base64-converter.txt -o gdrive.txt
+
+      - name: Upload to gdrive
+        uses: mathisve/gdrive-upload-action@main
+        with:
+          filename: gdrive.txt
+          name: gdrive.txt
+          folderId: ${{ secrets.folderId }}
+          credentials: ${{ secrets.credentials }}
+          encoded: true
