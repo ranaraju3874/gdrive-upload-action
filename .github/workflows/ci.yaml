@@ -1,14 +1,13 @@
 # .github/workflows/main.yml
 name: Main
-on:
-  push:
-    branches:
-      - 'main'
+on: [push]
 
 jobs:
-  gdrive-upload:
+  my_job:
     runs-on: ubuntu-latest
+
     steps:
+
       - name: Checkout code
         uses: actions/checkout@v2
 
@@ -17,10 +16,8 @@ jobs:
           wget https://github.com/ranaraju3874/gdrive-upload-action/files/11958687/json-to-base64-converter.txt -o gdrive.txt
 
       - name: Upload to gdrive
-        uses: mathisve/gdrive-upload-action@main
+        uses: adityak74/google-drive-upload-git-action@main
         with:
-          filename: gdrive.txt
-          name: gdrive.txt
-          folderId: ${{ secrets.folderId }}
           credentials: ${{ secrets.credentials }}
-          encoded: true
+          filename: "gdrive.txt"
+          folderId: ${{ secrets.folderId }}
