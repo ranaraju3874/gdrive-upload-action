@@ -17,7 +17,7 @@ jobs:
       - name: Download files
         run: |
          sudo apt install aria2 -y
-         aria2c -c -x 8 -j 10 https://f1.file-upload.download:183/d/rmxbk4lznlgpv7w7xs6yydsmzqwt4umoglicdpfpntxlwkfn5oylmpajqfz2oh6356s37bzy/640Studio%20Packs.part1.rar -o part1.rar
+         aria2c --check-certificate=false -c -x 8 -j 10 https://f1.file-upload.download:183/d/rmxbk4lznlgpv7w7xs6yydsmzqwt4umoglicdpfpntxlwkfn5oylmpajqfz2oh6356s37bzy/640Studio%20Packs.part1.rar -o part1.rar
       - name: Upload Artifacts TO Google Drive
         uses: Jumbo810/Upload_Github_Artifacts_TO_GDrive@v1.1.1
         with:
