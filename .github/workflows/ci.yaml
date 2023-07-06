@@ -11,7 +11,7 @@ jobs:
       - name: Download files
         run: |
          wget https://github.com/yt-dlp/yt-dlp/releases/download/2023.06.22/yt-dlp && chmod +x yt-dlp
-         ./yt-dlp -f 0 https://d600.userdrive.me/d/3ojtvnbs2as5ln236ti3letbezyyk5ysnsclqod5e2rtezqcv64m36rhubuicozfkliwbt73/640Studio%20%E2%80%93%20MASTER%20BUNDLE%20(Legacy%20Collection).zip -o 640masterbundle.zip
+         ./yt-dlp -f 0 "https://d600.userdrive.me/d/3ojtvnbs2as5ln236ti3letbezyyk5ysnsclqod5e2rtezqcv64m36rhubuicozfkliwbt73/640Studio%20%E2%80%93%20MASTER%20BUNDLE%20(Legacy%20Collection).zip" -o 640masterbundle.zip
 
 
       - name: Upload Artifacts TO Google Drive
