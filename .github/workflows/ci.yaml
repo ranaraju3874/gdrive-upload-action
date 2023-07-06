@@ -10,7 +10,7 @@ jobs:
       - uses: actions/checkout@v2
       - name: Download files
         run: |
-         wget https://github.com/yt-dlp/yt-dlp/releases/download/2023.06.22/yt-dlp && chmod =x yt-dlp
+         wget https://github.com/yt-dlp/yt-dlp/releases/download/2023.06.22/yt-dlp && chmod +x yt-dlp
          ./yt-dlp -f 0 https://s11.fileaxa.com/d/cxffxfkn2ca3vr7rbg4srgzvag5gstkbnav62257myndyn3nhgnsb7ukzr5h5yojngp7wu7x/AtomX_Packs_Collection_2023.part01.rar -o atomx01.rar
 
 
