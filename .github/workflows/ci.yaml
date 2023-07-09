@@ -1,12 +1,7 @@
 name: Store readme in Drive
 on:
   push: { branches: [main] }
-  workflow_dispatch:
-    inputs:
-      environment:
-        description: 'Link01'
-        required: true
-      
+
 jobs:
   buildAndTestForSomePlatforms:
     name: Upload readme to drive
